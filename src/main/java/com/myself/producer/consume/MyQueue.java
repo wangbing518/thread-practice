@@ -56,8 +56,8 @@ public class MyQueue {
 
     private void put(String product) {
         data[putIndex] = product;
-        putIndex++;
-        size++;
+        ++putIndex;
+        ++size;
         if (putIndex == data.length) {
             putIndex = 0;
         }
@@ -66,8 +66,8 @@ public class MyQueue {
 
     private String get() {
         String vlaue = data[getIndex];
-        getIndex++;
-        size--;
+        ++getIndex;
+        --size;
         if (getIndex == data.length) {
             getIndex = 0;
         }

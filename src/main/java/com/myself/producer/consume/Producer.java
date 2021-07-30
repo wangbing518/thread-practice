@@ -10,8 +10,12 @@ import lombok.SneakyThrows;
  */
 public class Producer extends Thread {
 
-    MyQueue myQueue=new MyQueue();
-    Integer i=1;
+    private final MyQueue myQueue;
+    private Integer i=1;
+
+    public Producer(MyQueue myQueue) {
+        this.myQueue = myQueue;
+    }
 
     @SneakyThrows
     @Override

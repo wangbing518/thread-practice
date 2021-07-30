@@ -10,16 +10,19 @@ import lombok.SneakyThrows;
  */
 public class Consume extends Thread {
 
-    MyQueue myQueue=new MyQueue();
+    private final MyQueue myQueue;
 
+    public Consume(MyQueue myQueue) {
+        this.myQueue = myQueue;
+    }
 
     @SneakyThrows
     @Override
     public void run() {
-        while (true){
+        while (true) {
             String consume = myQueue.consume();
             Thread.sleep(1000);
-            System.out.println("消耗商品:"+consume);
+            System.out.println("消耗商品:" + consume);
         }
     }
 }
