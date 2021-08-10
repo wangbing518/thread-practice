@@ -10,12 +10,17 @@ package com.myself.producer.consume;
 public class Main {
 
     public static void main(String[] args) {
-        MyQueue myQueue = new MyQueue();
-        //TODO 有问题 还未解决
-        Producer producer = new Producer(myQueue);
-        Consume consumer = new Consume(myQueue);
-        producer.start();
-        consumer.start();
+        Integer a = 10;
+        Integer b = 20;
+        System.out.println("输出交换前的两个数:a=" + a + ",b=" + b);
+        changeNum(a, b);
+        System.out.println("输出交换后的两个数:a=" + a + ",b=" + b);
+    }
 
+    public static void changeNum(Integer num1, Integer num2) {
+        int t;
+        t = num1;
+        num1 = num2;
+        num2 = t;
     }
 }
