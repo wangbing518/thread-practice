@@ -1,4 +1,4 @@
-package com.myself.demo1;
+package com.shanggugui.demo1;
 
 import java.util.concurrent.Callable;
 

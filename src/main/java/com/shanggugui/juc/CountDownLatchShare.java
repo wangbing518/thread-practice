@@ -1,6 +1,5 @@
-package com.myself.juc;
+package com.shanggugui.juc;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.FutureTask;
 

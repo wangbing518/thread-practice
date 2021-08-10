@@ -1,6 +1,4 @@
-package com.myself.deadlock;
-
-import lombok.Synchronized;
+package com.shanggugui.deadlock;
 
 /**
  * @ClassName Demo1

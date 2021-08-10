@@ -1,4 +1,4 @@
-package com.myself.list;
+package com.shanggugui.list;
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
