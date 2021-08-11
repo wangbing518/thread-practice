@@ -16,28 +16,28 @@ public class CountDownLatchShare {
     public static void main(String[] args) throws InterruptedException {
         //TODO 并未有按照理解的等人走完才到主线程
        // futureTaskFinish();
-        runnablFinish();
+        final CountDownLatch countDownLatch=new CountDownLatch(6);
+
+        runnablFinish(countDownLatch);
         System.out.println(Thread.currentThread().getName()+"所有人都离开教室值班人员锁门");
     }
 
-    private static void runnablFinish() throws InterruptedException {
-        CountDownLatch countDownLatch=new CountDownLatch(6);
-        for (int i=1;i<=6;i++){
+    private static void runnablFinish(CountDownLatch countDownLatch) throws InterruptedException {
+        for (int i=0;i<6;i++){
             int temp=i;
             new Thread(()->{
-                countDownLatch.countDown();
                 try {
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 System.out.println("第"+ temp +"个学生离开教室");
+                countDownLatch.countDown();
             },String.valueOf(i)).start();
         }
         System.out.println("主线程睡觉");
-        countDownLatch.await();
         System.out.println("教室里剩余人数"+countDownLatch.getCount());
-
+        countDownLatch.await();
     }
 
     private static void futureTaskFinish() throws InterruptedException {
